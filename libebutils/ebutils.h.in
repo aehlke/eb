@@ -1,0 +1,46 @@
+/*                                                            -*- C -*-
+ * Copyright (c) 2000, 01  
+ *    Motoyuki Kasahara
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2, or (at your option)
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+#ifndef EBUTILS_H
+#define EBUTILS_H
+
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#include "eb/eb.h"
+
+/*
+ * Text domain name for message catalog.
+ */
+#define TEXT_DOMAIN_NAME	"ebutils"
+
+/*
+ * Path to the locale directory.
+ */
+#define LOCALEDIR		"@localedir@"
+
+/*
+ * Function declarations.
+ */
+void output_try_help EB_P((const char *));
+void output_version EB_P((const char *, const char *));
+int parse_subbook_name_argument EB_P((const char *, const char *,
+    char [][EB_MAX_DIRECTORY_NAME_LENGTH  + 1], int *));
+EB_Subbook_Code find_subbook EB_P((EB_Book *, const char *,
+    EB_Subbook_Code *));
+void canonicalize_path EB_P((char *));
+
+#endif /* not EBUTILS_H */
